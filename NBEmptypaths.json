@@ -1,0 +1,152 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Public API.",
+    "version": "V1",
+    "title": "Online Banking REST API",
+    "termsOfService": "Terms of service",
+    "contact": {
+      "name": "Apisec NB",
+      "url": "http://netbanking.apisec.ai",
+      "email": "info@apisec.ai"
+    },
+    "license": {
+      "name": "netbanking",
+      "url": "http://netbanking.apisec.ai"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://netbanking.apisec.ai:8080/"
+    }
+  ],
+  "host": "qa-netbanking.apisec.ai:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "primary-transaction-controller",
+      "description": "Primary Transaction Controller"
+    }
+  ],
+  "paths": {},
+  "definitions": {
+    "PrimaryTransaction": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "availableBalance": {
+          "type": "number"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "createdDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "inactive": {
+          "type": "boolean"
+        },
+        "modifiedBy": {
+          "type": "string"
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/NameDto"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PrimaryTransaction"
+    },
+    "ResponseOfListOfPrimaryTransaction": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrimaryTransaction"
+          }
+        },
+        "errors": {
+          "type": "boolean"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Message"
+          }
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "requestTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "ResponseOfListOfPrimaryTransaction"
+    },
+    "ResponseOfPrimaryTransaction": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/PrimaryTransaction"
+        },
+        "errors": {
+          "type": "boolean"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Message"
+          }
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "requestTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "ResponseOfPrimaryTransaction"
+    }
+  }
+}
