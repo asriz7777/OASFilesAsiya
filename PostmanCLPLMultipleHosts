@@ -1,0 +1,690 @@
+{
+	"info": {
+		"_postman_id": "cefde8a6-6dd9-4490-87f1-659a6a687270",
+		"name": "LPL API - Composite API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "5754708",
+		"_collection_link": "https://www.postman.com/gold-space-129880/workspace/my-workspace/collection/14360500-cefde8a6-6dd9-4490-87f1-659a6a687270?action=share&source=collection_link&creator=5754708"
+	},
+	"item": [
+		{
+			"name": "Get Access Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "LPLpassw0rdSecret",
+						"username": "LPLDPGateway_Oauth_PassClient_CP"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "salesforce",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "salesforcelpl",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "/oauth/api/amp/linking-process-api/api/crm/v1/links",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://messagingdevint.lpl.com:443/esb/lpl/resource/getaccesstoken"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token Copy",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "LPLpassw0rdSecret",
+						"username": "LPLDPGateway_Oauth_PassClient_CP"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "salesforce",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "salesforcelpl",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "/oauth/api/amp/linking-process-api/api/crm/v1/links",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://messagingdevint.lpl.com:443/esb/lpl/resource/getaccesstoken"
+			},
+			"response": []
+		},
+		{
+			"name": "PostEventClientSynchAPI New",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "AAIgTFBMRFBHYXRld2F5X09hdXRoX1Bhc3NDbGllbnRfQ1D46q_CyW2OmDMOeVeWJlyAZBq0xeRTGqKGPnERzdusJsuEElYu9CTre7hWN3afI_80q5hw1c8A3xNyyK8zEU6-C72ZVuHjL_vPytclGcoPGMCfpBvM-HTxDXDMxO8Hb-NLyLozc1FETayvOnhUbBcQ"
+					}
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"records\":[\r\n\t\t{\"updatedBy\":\"Firstname Lastname\",\r\n\t\t\"tenantCode\":\"LPL\",\r\n\t\t\"target_ext_sys_record_id\":\"0051F00000rFMPV\",\r\n\t\t\"subscription_org_id\":\"00D1F000000fWv4UAE\",\r\n\t\t\"source_ext_sys_record_id\":\"a011F00000GR4vuQAD\",\r\n\t\t\"rep_id\":\"67890\",\r\n\t\t\"master_rep_id\":\"123456\",\r\n\t\t\"link_status\":\"linked\",\r\n\t\t\"isactive\":\"Y\",\r\n\t\t\"ext_sys_url\":\"https://data-momentum-4113.cs90.my.salesforce.com\",\r\n\t\t\"ext_linking_id\":\"100\",\r\n\t\t\"clientType\":\"Contact\",\r\n\t\t\"client_id\":567890}\r\n\t],\r\n\t\"product_name\":\"salesforcemp\",\r\n\t\"product_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://messagingdevint.lpl.com:443/oauth/api/amp/linking-process-api/api/crm/v1/links"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token Scratch org",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_id",
+						"value": "3MVG9p1Q1BCe9GmBAZeIEVtzOwi_MAH5B4eREzuHixQY1GNX6MFGM4KNxLYDGc0.CYyI4aV4PHFnwf0GnXjs9",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_secret",
+						"value": "565CF1828604712E7249C1067298288C9B0419316CBC3EB7F4B9B07AC4B99C94",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"value": "prashant.bhure@lpl-package-development.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "Silver202101@Line",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "3MVG9FG3dvS828gKsJYBPK7XPc51rawj.wgCmKZbzmbceb7H7jcyxSW5ZPfIiAyGnHXi8c8kX.hiYVS.IEB3m",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "19AD1A6E39B2B676A8BA48B57D2F9D8651ED6628C7465278FEA3E27715B94D96",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "test-esay0bmmlbkt@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Welcome@123",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://data-momentum-4113.cs90.my.salesforce.com/services/oauth2/token"
+			},
+			"response": []
+		},
+		{
+			"name": "Post RepListUpdate method",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "00D54000000kUmz!AQsAQP1YoNobHZRZI1oI3Ilq072YsoPl04SW3PwmCJCJ.Pp_hmxHQDm8WF_KoeU1SdcgiMprU_YfI3YI2tWQzP_XgKf4rjjA"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_id",
+						"value": "3MVG9p1Q1BCe9GmBAZeIEVtzOwi_MAH5B4eREzuHixQY1GNX6MFGM4KNxLYDGc0.CYyI4aV4PHFnwf0GnXjs9",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_secret",
+						"value": "565CF1828604712E7249C1067298288C9B0419316CBC3EB7F4B9B07AC4B99C94",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"value": "prashant.bhure@lpl-package-development.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "Silver202101@Line",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 00D54000000kUmz!AQsAQP91VI6MYyedduYa9nGf7A2psvk_svOVrYVMyv_mDKplQ.zauPg0BMSkUm5hUdbieZUawfbbBnHo_0EFGHInuuksWSZs",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"records\": [\r\n        {\r\n            \"MasterRepID\": \"001J\",\r\n            \"Tokenized_MasterRepID\":\"001J\",\r\n            \"RepStatusCode\": 2,\r\n            \"RepStatusDate\": \"9/15/2021\",\r\n            \"name\": \"IAS REP TEST\",\r\n            \"FirstName\": \"IAS REP\",\r\n            \"MiddleName\": \"\",\r\n            \"LastName\": \"TEST\",\r\n            \"CRD\": 0,\r\n            \"BusinessPhoneNo\": 999999,\r\n            \"BusinessPhoneNoExtension\": \"\",\r\n            \"EmailAddress\": \"\",\r\n            \"TaxId\": \"111-11-2222\",\r\n            \"BusinessStreet1\": \"TEST\",\r\n            \"BusinessStreet2\": \"\",\r\n            \"BusinessCity\": \"TEST\",\r\n            \"BusinessState\": \"SC\",\r\n            \"BusinessZipCode\": 99999,\r\n            \"BusinessCountry\": \"US\",\r\n            \"MailingStreet1\": \"TEST\",\r\n            \"MailingStreet2\": \"\",\r\n            \"MailingCity\": \"TEST\",\r\n            \"MailingState\": \"SC\",\r\n            \"MailingZipCode\": 99999,\r\n            \"MailingCountry\": \"US\",\r\n            \"RepLists\": \r\n                [\r\n                    {\r\n                        \"RepID\": \"001J\",\r\n                        \"Tokenized_RepID\": \"001J\"\r\n                    },\r\n                    {\r\n                        \"RepID\": \"016J\",\r\n                        \"Tokenized_RepID\": \"016J\"\r\n                    },\r\n                    {\r\n                        \"RepID\": \"017J\",\r\n                        \"Tokenized_RepID\": \"017J\"\r\n                    }\r\n                ]\r\n            \r\n        },\r\n        {\r\n            \"MasterRepID\": \"003E\",\r\n            \"RepStatusCode\": 2,\r\n            \"RepStatusDate\": \"9/15/2021\",\r\n            \"name\": \"DREDEN MANILOW\",\r\n            \"FirstName\": \"DREDEN\",\r\n            \"MiddleName\": \"KFIR\",\r\n            \"LastName\": \"MANILOW\",\r\n            \"CRD\": 5650904,\r\n            \"BusinessPhoneNo\": 61975491,\r\n            \"BusinessPhoneNoExtension\": \"\",\r\n            \"EmailAddress\": \"\",\r\n            \"Tax Id\": \"269-78-3574\",\r\n            \"BusinessStreet1\": \"5810 VISTA SANTA CLARA\",\r\n            \"BusinessStreet2\": \"\",\r\n            \"BusinessCity\": \"CORONADO\",\r\n            \"BusinessState\": \"CA\",\r\n            \"BusinessZipCode\": 92118,\r\n            \"BusinessCountry\": \"US\",\r\n            \"MailingStreet1\": \"5810 VISTA SANTA CLARA\",\r\n            \"MailingStreet2\": \"\",\r\n            \"MailingCity\": \"CORONADO\",\r\n            \"MailingState\": \"CA\",\r\n            \"MailingZipCode\": 92118,\r\n            \"MailingCountry\": \"US\",\r\n            \"RepLists\": \r\n                [\r\n                    {\r\n                        \"RepID\": \"003E\",\r\n                        \"Tokenized_RepID\": \"003E\"\r\n                    },\r\n                    {\r\n                        \"RepID\": \"02ML\",\r\n                        \"Tokenized_RepID\": \"02ML\"\r\n                    }\r\n                ]\r\n            \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://java-ruby-6624.cs40.my.salesforce.com/services/apexrest/lpltest/updateRepList"
+			},
+			"response": []
+		},
+		{
+			"name": "Composite Request (Linking/Updating from CW)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "00D5f000002dljE!ARgAQBWmHelusZZK9sAxYL4NfcevLNzkxYG4U5EUwUNYnpE7pbA7AKYcjpOIn64jwEqfA9ZyPdOI8STKl8Ozj93ne2fbQIF0"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"compositeRequest\": [\r\n        {\r\n            \"method\": \"PATCH\",\r\n            \"url\": \"/services/data/v53.0/sobjects/Client__c/Tokenized_ClientID__c/3013414\",\r\n            \"referenceId\": \"Client1\",\r\n            \"body\": {\r\n                \"FirstName__c\": \"Prashant\",\r\n                \"MiddleName__c\": \"N\",\r\n                \"LastName__c\": \"Bhure\",\r\n                \"Email__c\": \"prashant.bhure@lplfinancial.com\",\r\n                \"RepID__r\": {\r\n                    \"Tokenized_RepID__c\": \"000L\"\r\n                },\r\n                \"MailingCity__c\": \"Raleigh\",\r\n                \"MobilePhone__c\": \"9196181234\",\r\n                \"IsEntity__c\": 0,\r\n                \"Dependents__c\": 2,\r\n                \"HomePhone__c\": \"9196181234\",\r\n                \"TaxIdType__c\": 1,\r\n                \"ClientSince__c\": \"2000-11-15\",\r\n                \"ClientType__c\": \"Client\",\r\n                \"MailingZipCode__c\": \"27613\",\r\n                \"Name\": \"Prashant Bhure\",\r\n                \"ResidenceZipCode__c\": \"27613\",\r\n                \"BusinessPhone__c\": \"9196181234\",\r\n                \"ResidenceState__c\": \"NC\",\r\n                \"MailingCountry__c\": \"US\",\r\n                \"ClientID__c\": \"3013414\",\r\n                \"DateofBirth__c\": \"1990-01-01\",\r\n                \"MaritalStatus__c\": 1,\r\n                \"TaxId__c\": \"123456789\",\r\n                \"Gender__c\": \"M\",\r\n                \"MailingState__c\": \"SC\",\r\n                \"MailingStreet2__c\": \"\",\r\n                \"MailingStreet1__c\": \"123 Main Street\",\r\n                \"ResidenceCity__c\": \"Fort Mills\",\r\n                \"ResidenceStreet1__c\": \"5524 Seafarer Ct\",\r\n                \"ResidenceStreet2__c\": \"Suite# 123\",\r\n                \"Fax__c\": \"\"\r\n            }\r\n        },\r\n        {\r\n            \"method\": \"PATCH\",\r\n            \"url\": \"/services/data/v53.0/sobjects/FinancialAccount__c/accountID__c/8682772\",\r\n            \"referenceId\": \"Account1\",\r\n            \"body\": {\r\n                \"clientID__r\": {\r\n                    \"Tokenized_ClientID__c\": 3013414\r\n                },\r\n                \"Name\": \"PrashantBhure-Acct1\",\r\n                \"RepID__r\": {\r\n                    \"Tokenized_RepID__c\": \"000L\"\r\n                },\r\n                \"ACHDistributionOnDemand__c\": null,\r\n                \"AccountTitle__c\": \"Test Title\",\r\n                \"YTDTotalRevenue__c\": 12345.50,\r\n                \"YTDDistributionAmount__c\": 12345.50,\r\n                \"FundsAvailable__c\": 12345.50,\r\n                \"Product__c\": null,\r\n                \"CashEquivalentsTotalAmount__c\": 12345.50,\r\n                \"FISBranchName__c\": null,\r\n                \"RequiredMinDistributionRemaining__c\": 99.12,\r\n                \"AccountLocationCode__c\": null,\r\n                \"AccountClassName__c\": null,\r\n                \"Nickname__c\": null,\r\n                \"NickName__c\": \"TestNick\",\r\n                \"accountStatus__c\": 1,\r\n                \"ACHContributionOnDemand__c\": null,\r\n                \"ACHDetail__c\": \"Test ACH Detail\",\r\n                \"IRAType__c\": null,\r\n                \"OpenDate__c\": \"2010-11-15\",\r\n                \"LastYearEndBalance__c\": 100000.25,\r\n                \"CloseDate__c\": null,\r\n                \"SponsorAccountNo__c\": \"987654\",\r\n                \"AccountTypeCode__c\": \"C - Corporation/S corp\",\r\n                \"family__c\": null,\r\n                \"TotalAccountValue__c\": 1000000.99,\r\n                \"InvestmentObjectiveCode__c\": \"A\",\r\n                \"CashPlusMarginAmount__c\": 1000.00,\r\n                \"FISBranchID__c\": null,\r\n                \"AccountName__c\": \"TestAccountName\",\r\n                \"Model__c\": null,\r\n                \"LPLAccountValue__c\": 98765.50,\r\n                \"RequiredMinDistributionAmount__c\": 23456.12,\r\n                \"LPLAccountNo__c\": \"12345\",\r\n                \"YTDContributionAmount__c\": 2222.33,\r\n                \"BooksAndRecordsStatus__c\": null,\r\n                \"AdvisoryFeePercent__c\": null\r\n            }\r\n        },\r\n        {\r\n            \"method\": \"PATCH\",\r\n            \"url\": \"/services/data/v53.0/sobjects/Holding__c/Holding_External_ID__c/8682772-32\",\r\n            \"referenceId\": \"Holding1\",\r\n            \"body\": {\r\n                \"accountID__r\": {\r\n                    \"accountID__c\": \"8682772\"\r\n                },\r\n                \"Quantity__c\": 100,\r\n                \"sponsorAccountNo__c\": \"1234\",\r\n                \"Name\": \"New Economy Fund Cl A -\",\r\n                \"AssetClass__c\": \"Large US Gro Eq\",\r\n                \"securityID__c\": \"ANEFX\",\r\n                \"locationcode__c\": null,\r\n                \"SecurityDescription__c\": \"ANEFX Description\",\r\n                \"SecurityType__c\": \"Fund\",\r\n                \"CurrentMarketValueDate__c\": \"2022-02-09\",\r\n                \"Yield__c\": null,\r\n                \"purchaseCost__c\": 10000,\r\n                \"Symbol__c\": \"ANEFX\",\r\n                \"HighLevelAssetClassName__c\": \"Test1\",\r\n                \"CurrentMarketValue__c\": 20000.50,\r\n                \"securityTypeCode__c\": \"FSX\"\r\n            }\r\n        },\r\n        {\r\n            \"method\": \"PATCH\",\r\n            \"url\": \"/services/data/v53.0/sobjects/Holding__c/Holding_External_ID__c/8682772-33\",\r\n            \"referenceId\": \"Holding2\",\r\n            \"body\": {\r\n                \"accountID__r\": {\r\n                    \"accountID__c\": \"8682772\"\r\n                },\r\n                \"Quantity__c\": 200,\r\n                \"sponsorAccountNo__c\": \"21234\",\r\n                \"Name\": \"2New Economy Fund Cl A -\",\r\n                \"AssetClass__c\": \"2Large US Gro Eq\",\r\n                \"securityID__c\": \"2ANEFX\",\r\n                \"locationcode__c\": null,\r\n                \"SecurityDescription__c\": \"2ANEFX Description\",\r\n                \"SecurityType__c\": \"2Fund\",\r\n                \"CurrentMarketValueDate__c\": \"2022-02-09\",\r\n                \"Yield__c\": null,\r\n                \"purchaseCost__c\": 20000,\r\n                \"Symbol__c\": \"2ANEFX\",\r\n                \"HighLevelAssetClassName__c\": \"2Test1\",\r\n                \"CurrentMarketValue__c\": 40000.50,\r\n                \"securityTypeCode__c\": \"2FSX\"\r\n            }\r\n        }\r\n    ]\r\n}\r\n"
+				},
+				"url": "https://lpl-package-development-dev-ed.my.salesforce.com/services/data/v53.0/composite"
+			},
+			"response": []
+		},
+		{
+			"name": "PostEventClientSynchAPI (Linking from CW)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"records\" :[\r\n\t{\r\n\t  \"LPL_Client_ID\": \"12345\",\r\n\t  \"Ext_Sys_Record_ID\": \"a015f00000HuBC2XYZ\",\r\n\t  \"Target_Ext_Sys_Record_ID\": \"0015f00000HuBC2ABC\",\r\n\t  \"Ext_Sys_URL\": \"https://lpl-package-development-dev-ed.my.salesforce.com\",\r\n      \"SUBSCRIPTION_ORG_ID\": \"1234\",\r\n      \"REP_ID\" : \"XYZ\",\r\n      \"MASTER_ID\" : \"XYZ\"\r\n\t},\r\n\t{\r\n\t  \"LPL_Client_ID\": \"54321\",\r\n\t  \"Ext_Sys_Record_ID\": \"a015f00000HuBC3XYZ\",\r\n\t  \"Target_Ext_Sys_Record_ID\": \"0015f00000HuBC3ABC\",\r\n\t  \"Ext_Sys_URL\": \"https://lpl-package-development-dev-ed.my.salesforce.com\",\r\n       \"SUBSCRIPTION_ORG_ID\": \"1234\",\r\n      \"REP_ID\" : \"ABCD\",\r\n      \"MASTER_ID\" : \"XYZ\"\r\n\t}\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://messagingdevint.lpl.com:443/oauth/api/PostEventClientSynchAPI?product=salesforcemp&limit=200",
+					"protocol": "https",
+					"host": [
+						"messagingdevint",
+						"lpl",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"oauth",
+						"api",
+						"PostEventClientSynchAPI"
+					],
+					"query": [
+						{
+							"key": "product",
+							"value": "salesforcemp"
+						},
+						{
+							"key": "limit",
+							"value": "200"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRepList",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "00D7A0000000m4G!ARgAQOxeahdKof4PnL8JxJUF8zBtx9QrQGBVYLDv31hRAIbYWmexw2Eb2q8sizHhQsreoZPxSh1gHEpi_2t5V4tgrG3.5rzX"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"records\": [\r\n        {\r\n            \"MasterRepID\": \"001J\",\r\n            \"Tokenized_MasterRepID\":\"ABCD\",\r\n            \"RepStatusCode\": 3,\r\n            \"RepStatusDate\": \"9/15/2022\",\r\n            \"name\": \"NARENDRA\",\r\n            \"FirstName\": \"IAS REP \",\r\n            \"MiddleName\": \"\",\r\n            \"LastName\": \"TEST\",\r\n            \"CRD\": 0,\r\n            \"BusinessPhoneNo\": 1111111,\r\n            \"BusinessPhoneNoExtension\": \"\",\r\n            \"EmailAddress\": \"\",\r\n            \"TaxId\": \"111-11-2222\",\r\n            \"BusinessStreet1\": \"TEST\",\r\n            \"BusinessStreet2\": \"\",\r\n            \"BusinessCity\": \"TEST\",\r\n            \"BusinessState\": \"SC\",\r\n            \"BusinessZipCode\": 111111,\r\n            \"BusinessCountry\": \"US\",\r\n            \"MailingStreet1\": \"TEST\",\r\n            \"MailingStreet2\": \"\",\r\n            \"MailingCity\": \"TEST\",\r\n            \"MailingState\": \"SC\",\r\n            \"MailingZipCode\": 111111,\r\n            \"MailingCountry\": \"US\",\r\n            \"CWUserID\":\"123456789\",\r\n            \"RepLists\": \r\n                [\r\n                    {\r\n                        \"RepID\": \"001J\",\r\n                        \"Tokenized_RepID\": \"ABCD\"                    },\r\n                        \r\n                    {\r\n                        \"RepID\": \"016J\",\r\n                        \"Tokenized_RepID\": \"016J\"\r\n                    },\r\n                    {\r\n                        \"RepID\": \"017J\",\r\n                        \"Tokenized_RepID\": \"017J\"\r\n                    },\r\n                    {\r\n                        \"RepID\": \"017t\",\r\n                        \"Tokenized_RepID\": \"017t\"\r\n                    },\r\n                    {\r\n                        \"RepID\": \"017u\",\r\n                        \"Tokenized_RepID\": \"017u\"\r\n                    }\r\n                ]\r\n            \r\n        },\r\n        {\r\n            \"MasterRepID\": \"003E\",\r\n            \"Tokenized_MasterRepID\":\"DEFG\",\r\n            \"RepStatusCode\": 2,\r\n            \"RepStatusDate\": \"9/15/2021\",\r\n            \"name\": \"DREDEN MANILOW\",\r\n            \"FirstName\": \"DREDEN\",\r\n            \"MiddleName\": \"KFIR\",\r\n            \"LastName\": \"MANILOW\",\r\n            \"CRD\": 5650904,\r\n            \"BusinessPhoneNo\": 6197549149,\r\n            \"BusinessPhoneNoExtension\": \"\",\r\n            \"EmailAddress\": \"\",\r\n            \"TaxId\": \"269-78-3574\",\r\n            \"BusinessStreet1\": \"5810 VISTA SANTA CLARA\",\r\n            \"BusinessStreet2\": \"\",\r\n            \"BusinessCity\": \"CORONADO\",\r\n            \"BusinessState\": \"CA\",\r\n            \"BusinessZipCode\": 92118,\r\n            \"BusinessCountry\": \"US\",\r\n            \"MailingStreet1\": \"5810 VISTA SANTA CLARA\",\r\n            \"MailingStreet2\": \"\",\r\n            \"MailingCity\": \"CORONADO\",\r\n            \"MailingState\": \"CA\",\r\n            \"MailingZipCode\": 92118,\r\n            \"MailingCountry\": \"US\",\r\n            \"CWUserID\":\"6789\",\r\n            \"RepLists\": \r\n                [\r\n                    {\r\n                        \"RepID\": \"003E\",\r\n                        \"Tokenized_RepID\": \"DEFG\"\r\n                    },\r\n                    {\r\n                        \"RepID\": \"02ML\",\r\n                        \"Tokenized_RepID\": \"02ML\"\r\n                    },\r\n                    {\r\n                        \"RepID\": \"02MN\",\r\n                        \"Tokenized_RepID\": \"02MN\"\r\n                    },\r\n                    {\r\n                        \"RepID\": \"02MO\",\r\n                        \"Tokenized_RepID\": \"02MO\"\r\n                    }\r\n                ]\r\n            \r\n        }\r\n    ]\r\n}"
+				},
+				"url": "https://speed-energy-8327.my.salesforce.com/services/apexrest/lpltest/updateRepList"
+			},
+			"response": []
+		},
+		{
+			"name": "Update LPL Client ID in SF (Linking from SF)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "00D5f000002dljE!ARgAQF6qZlpHWw8v8YvXtH3J9nYfAW.DJz6AVnaFb7I9o6bquZGr_jpwXI7MJXdb6tPMcjBZeY629CoHAtKp9k0Wb9mgiHVL"
+					}
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"allOrNone\": false,\r\n    \"records\": [\r\n        {\r\n            \"attributes\": {\r\n                \"type\": \"Client__c\"\r\n            },\r\n            \"id\": \"a015f00000HuBDJ\",\r\n            \"ClientID__c\": \"27000\",\r\n            \"Tokenized_ClientID__c\": \"XYZ27000\"\r\n        },\r\n        {\r\n            \"attributes\": {\r\n                \"type\": \"Client__c\"\r\n            },\r\n            \"id\": \"a015f00000J5KIA\",\r\n            \"ClientID__c\": \"28000\",\r\n            \"Tokenized_ClientID__c\": \"XYZ28000\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": "https://lpl-package-development-dev-ed.my.salesforce.com/services/data/v53.0/composite/sobjects"
+			},
+			"response": []
+		},
+		{
+			"name": "Org Registration - Get Token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "00D5f000002dljE!ARgAQF6qZlpHWw8v8YvXtH3J9nYfAW.DJz6AVnaFb7I9o6bquZGr_jpwXI7MJXdb6tPMcjBZeY629CoHAtKp9k0Wb9mgiHVL"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "TFBMRFBHYXRld2F5X09hdXRoX1Bhc3NDbGllbnRfQ1A6TFBMcGFzc3cwcmRTZWNyZXQ=",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "salesforce",
+							"type": "text"
+						},
+						{
+							"key": "passwprd",
+							"value": "salesforcelpl",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "/oauth/api/org-register",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "https://messagingdevint.lpl.com:443/esb/lpl/resource/getaccesstoken"
+			},
+			"response": []
+		},
+		{
+			"name": "Org Registration - Register Org",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "00D5f000002dljE!ARgAQF6qZlpHWw8v8YvXtH3J9nYfAW.DJz6AVnaFb7I9o6bquZGr_jpwXI7MJXdb6tPMcjBZeY629CoHAtKp9k0Wb9mgiHVL"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orgId\": \"00D55000000L21Z\",\r\n    \"orgEndpoint\": \"https://lpl-package-test.my.salesforce.com\",\r\n    \"username\": \"Kiruthika.rathinavelsamy@lpl-package-test.com\",\r\n    \"firmId\": \"1\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://messagingdevint.lpl.com:443/oauth/api/org-register"
+			},
+			"response": []
+		},
+		{
+			"name": "LFFIIB-21 : Get Authorization code",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_id",
+						"value": "3MVG9p1Q1BCe9GmBAZeIEVtzOwi_MAH5B4eREzuHixQY1GNX6MFGM4KNxLYDGc0.CYyI4aV4PHFnwf0GnXjs9",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_secret",
+						"value": "565CF1828604712E7249C1067298288C9B0419316CBC3EB7F4B9B07AC4B99C94",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"value": "prashant.bhure@lpl-package-development.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "Silver202101@Line",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "3MVG9JamK_x9K2XJasWAu0JRje.sgI4kd1G.TKIcHoAWsofOq9qnT.Yh6I3rUzLeP_2pu8vBLbTDrEKthkFL.",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "751F7FAB55ED5D70148E79896C9F56F0C0FE798D6683DC250A323411C5FD56E3\n",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://speed-app-4143.cs92.my.salesforce.com/services/oauth2/callback",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "aPrxYP5gpyyQRkYsn3SjeCc777rjrqFHRjHOaFZ4cSInLc.uQWo0v6v7jILwGnWa8dRIX8YYIQ==",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "https://speed-app-4143.cs92.my.salesforce.com/services/oauth2/token"
+			},
+			"response": []
+		},
+		{
+			"name": "LFFIIB-21 : Get Token for oAuth Authorization",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_id",
+						"value": "3MVG9p1Q1BCe9GmBAZeIEVtzOwi_MAH5B4eREzuHixQY1GNX6MFGM4KNxLYDGc0.CYyI4aV4PHFnwf0GnXjs9",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_secret",
+						"value": "565CF1828604712E7249C1067298288C9B0419316CBC3EB7F4B9B07AC4B99C94",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"value": "prashant.bhure@lpl-package-development.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "Silver202101@Line",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "3MVG9JamK_x9K2XJasWAu0JRje.sgI4kd1G.TKIcHoAWsofOq9qnT.Yh6I3rUzLeP_2pu8vBLbTDrEKthkFL.",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "751F7FAB55ED5D70148E79896C9F56F0C0FE798D6683DC250A323411C5FD56E3\n",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://speed-app-4143.cs92.my.salesforce.com/services/oauth2/callback",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "aPrxYP5gpyyQRkYsn3SjeCc777rjrqFHRjHOaFZ4cSInLc.uQWo0v6v7jILwGnWa8dRIX8YYIQ==",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "https://speed-app-4143.cs92.my.salesforce.com/services/oauth2/token"
+			},
+			"response": []
+		},
+		{
+			"name": "LFFIIB-21 : Get User info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_id",
+						"value": "3MVG9p1Q1BCe9GmBAZeIEVtzOwi_MAH5B4eREzuHixQY1GNX6MFGM4KNxLYDGc0.CYyI4aV4PHFnwf0GnXjs9",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "client_secret",
+						"value": "565CF1828604712E7249C1067298288C9B0419316CBC3EB7F4B9B07AC4B99C94",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"value": "prashant.bhure@lpl-package-development.com",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "Silver202101@Line",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://test.salesforce.com/id/00D3F000000icPLUAY/0053F00000DMCkuQAH?oauth_token=00D3F000000icPL!ASAAQMcYoUHuz8iO1mFcOgvdmD0Zin.5SWYzamjadNHfxPemy52t6mhIak4XpXvq3iP7Kbh.KNsZkvMB268MAWgbVJjz1MXw",
+					"protocol": "https",
+					"host": [
+						"test",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"id",
+						"00D3F000000icPLUAY",
+						"0053F00000DMCkuQAH"
+					],
+					"query": [
+						{
+							"key": "oauth_token",
+							"value": "00D3F000000icPL!ASAAQMcYoUHuz8iO1mFcOgvdmD0Zin.5SWYzamjadNHfxPemy52t6mhIak4XpXvq3iP7Kbh.KNsZkvMB268MAWgbVJjz1MXw"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
