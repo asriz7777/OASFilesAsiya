@@ -1,0 +1,434 @@
+swagger: '2.0'
+info:
+  title: DCR API
+  x-ibm-name: dcr-api
+  version: 4.1.0
+  description: >-
+    DCR API allow the partner to onboard the client profile
+  x-audience: company-internal
+schemes:
+  - https
+basePath: /
+security:
+  - OAuth:
+      - ScopeA
+    x-api-key: []
+securityDefinitions:
+  OAuth:
+    type: oauth2
+    flow: accessCode
+    x-ibm-oauth-provider: apic-oauth-ob-commercial-provider
+    authorizationUrl: https://www21.bmo.com/authorize
+    tokenUrl: https://isamaac-olbb-prodbcc.bmogc.net/sps/oauth/oauth20/token
+    scopes:
+      ScopeA: ScopeA
+  x-api-key:
+    type: apiKey
+    in: header
+    x-key-type: client_id
+    name: x-api-key
+parameters:
+  clientId:
+    in: path
+    name: clientId
+    description: Client Id
+    type: string
+    required: true
+  x-api-key:
+    in: header
+    name: x-api-key
+    description: API Key
+    type: string
+    required: true
+  authorization:
+    in: header
+    name: authorization
+    description: Authorization Token
+    type: string
+    required: true
+definitions:
+  Error:
+    title: Error Entity
+    description: >-
+      An error entity which can be used at the API level for error responses or
+      at the account level to indicate a problem specific to a particular
+      account.
+    properties:
+      code:
+        type: string
+        description: >-
+          Long term persistent identifier which can be used to trace error
+          condition back to log information
+      message:
+        type: string
+        description: >-
+          End user displayable information which might help the customer
+          diagnose an error
+    type: object
+  RegisterRequest:
+    title: Register Request Entity
+    description: >-
+      Register Request Entity
+    type: object
+    required:
+      - client_name
+      - client_uri
+      - grant_type
+      - jwks_uri
+      - redirect_uris
+    properties:
+      client_name:
+        type: string
+        description: Data Recipient application name. For use in the end-user UI during the consent flow and in the consent dashboard.
+      contacts:
+        type: array
+        items:
+          type: string
+        description: Array of strings representing ways to contact individuals responsible for the Data Recipient application.		  
+      description:
+        type: string        
+        description: A short description of the Data Recipient application.  
+      duration_period:
+        type: string
+        description: The duration period is the maximum consent duration (in days) that would be requested by a Data Recipient on behalf of the end-user during the consent flow. The current expected value for all Data Recipients is 365 days.
+      duration_type:
+        type: array
+        description: An array of duration types that the Data Recipient may request on behalf of the end-user during the consent flow. Currently the expected value is "TIME_BOUND" and the inclusion of "ONE_TIME" is currently being evaluated.
+        items:
+          type: string
+      grant_type:
+        type: array
+        description: Array of OAuth 2.0 grants the Symcor Utility may request on behalf of the Data Recipient during the consent flow. “authorization_code” and “refresh_token” SHOULD be the expected Grant types. As per FDX, grant types implicit, password and client credentials MUST not be provided as options.
+        items:
+          type: string
+      intermediaries:
+        type: array
+        description: An array of the intermediaries for this Data Recipient. For use in the end-user UI during the consent flow and in the consent dashboard. This will include but is not limited to the Symcor Utility.
+        items:	  
+          $ref: '#/definitions/Intermediary'
+      jwks_uri:
+        type: string
+        description: URL of JSON Web Key Set containing the public keys used by the Symcor Utility to authenticate itself with Authorization Server. Contrary to FDX, we marked this field as "required" to meet agreed security standards.
+      logo_uri:
+        type: string
+        description: Data Recipient application Logo URL. For use in the end-user UI during the consent flow and in the consent dashboard.
+      lookback_period:
+        type: string
+        description: The maximum number of days allowed for Data Recipients to obtain in transaction history, effective from the current date. The current expectation is 365 days and is defaulted to 365 days if not specified
+      redirect_uris:
+        type: array
+        description: An array of eligible redirect URI targets. Those will be URI(s) to the Symcor Utility
+        items:
+          type: string
+      registry_references:
+        type: array
+        description: An array of external registries containing registered entity name, registered entity id and registry fields for the registries where the data recipient is registered. If one or more registry entries is included, then all three fields are required to create a valid array object.
+        items:
+          $ref: '#/definitions/RegistryReference'
+      response_types:
+        type: array
+        description: Array of the OAuth 2.0 response type strings that the client can use at the authorization endpoint. FDX currently does not include this field in their API defintion. However Symcor has decided to include it to avoid ambiguity. These response types are "code", "token", "id token"
+        items:
+          type: string
+      scope:
+        type: array
+        description: String form field with a list of data clusters (SYMCOR_ACCOUNT_BASIC, SYMCOR_ACCOUNT_DETAILED, SYMCOR_ACCOUNT_PAYMENTS, SYMCOR_TRANSACTIONS, SYMCOR_CUSTOMER_CONTACT) as well as oAuth standard scopes (e.g. offline_access).These may vary depending on the Data Provider's implementation (e.g. white label vs DP-hosted consent).
+        items:
+          type: string
+  Intermediary:
+    description: >-
+       For use in the end-user UI during the consent flow and in the consent dashboard. This will include but is not limited to the Symcor Utility.
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      uri:
+        type: string
+      logo_uri:
+        type: string
+      contacts:
+        type: array
+        items:
+          type: string
+      registry_references:
+        type: array
+        items:
+          $ref: '#/definitions/RegistryReference'
+  RegistryReference:
+    description: >-
+       Registry references for this intermediary.
+    type: object
+    properties:
+      registered_entity_name:
+        type: string
+      registered_entity_id:
+        type: string
+      registry:
+        type: string
+  RegisterResponse:
+    type: object
+    properties:
+      registered_entity_name:
+        type: string
+  GetRequest:
+    type: object
+    properties:
+      clientId:
+        type: string  
+paths:
+  /tpp-cor-connect/partner-access-entitlement/open-banking-arrangement:
+    post:
+      operationId: Register an Recipient
+      tags:
+        - Recipient Information
+      summary: Request to Register Recipient by Creating a Recipient Record
+      description: >-
+        Request to Register Recipient by Creating a Recipient Record
+      parameters:
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/authorization'
+        - name: body
+          in: body
+          description: Request Body
+          schema:
+            $ref: '#/definitions/RegisterRequest'
+          required: true		
+      responses:
+        '200':
+          description: Array of accounts
+          headers:
+            x-client-api-key:
+              description: API Key for client
+              type: string
+          schema:
+            $ref: '#/definitions/RegisterResponse'
+        '400':
+          description: Bad Request Exception
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Forbidden - the user is not authorized to use this resource
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: Bad Request Exception
+          schema:
+            $ref: '#/definitions/Error'
+        '415':
+          description: Unsupported Media Type
+          schema:
+            $ref: '#/definitions/Error'
+        '429':
+          description: Too many requests
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        '502':
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        '504':
+          description: Integration or Backend Timeout
+          schema:
+            $ref: '#/definitions/Error'
+  /tpp-cor-connect/partner-access-entitlement/open-banking-arrangement/get/{clientId}:
+    get:
+      operationId: Get an Recipient
+      tags:
+        - Recipient Information
+      description: Get a specific recipient data identified with clientId
+      summary: Get a specific recipient data identified with clientId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/clientId'
+        - name: body
+          in: body
+          description: Request Body
+          schema:
+            $ref: '#/definitions/GetRequest'
+          required: true	        
+      responses:
+        '200':
+          description: Response
+          schema:
+            $ref: '#/definitions/RegisterRequest'
+        '400':
+          description: Bad Request Exception
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Forbidden - the user is not authorized to use this resource
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: Bad Request Exception
+          schema:
+            $ref: '#/definitions/Error'
+        '415':
+          description: Unsupported Media Type
+          schema:
+            $ref: '#/definitions/Error'
+        '429':
+          description: Too many requests
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        '502':
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        '504':
+          description: Integration or Backend Timeout
+          schema:
+            $ref: '#/definitions/Error'
+  /tpp-cor-connect/partner-access-entitlement/open-banking-arrangement/update/{clientId}:
+    put:
+      operationId: Update an Recipient
+      tags:
+        - Recipient Information
+      description: Update data for a specific recipient identified with clientId
+      summary: Update data for a specific recipient identified with clientId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/clientId'
+        - name: body
+          in: body
+          description: Request Body
+          schema:
+            $ref: '#/definitions/RegisterRequest'
+          required: true		        
+      responses:
+        '200':
+          description: >-
+            'Paged collection of transactions, which can be one of
+            DepositTransaction, LoanTransaction, LocTransaction or
+            InvestmentTransaction'
+          schema:
+            $ref: '#/definitions/RegisterResponse'
+        '400':
+          description: Bad Request Exception
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Forbidden - the user is not authorized to use this resource
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: Bad Request Exception
+          schema:
+            $ref: '#/definitions/Error'
+        '415':
+          description: Unsupported Media Type
+          schema:
+            $ref: '#/definitions/Error'
+        '429':
+          description: Too many requests
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        '502':
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        '504':
+          description: Integration or Backend Timeout
+          schema:
+            $ref: '#/definitions/Error'
+  /tpp-cor-connect/partner-access-entitlement/open-banking-arrangement/delete/{clientId}:
+    delete:
+      operationId: Delete an recipient
+      tags:
+        - Recipient Information
+      description: Delete data for a specific recipient identified with clientId.
+      summary: Delete data for a specific recipient identified with clientId.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/x-api-key'
+        - $ref: '#/parameters/authorization'
+        - $ref: '#/parameters/clientId'
+        - name: body
+          in: body
+          description: Request Body
+          schema:
+            $ref: '#/definitions/GetRequest'
+          required: true		                
+      responses:
+        '200':
+          description: >-
+            'Paged collection of transactions, which can be one of
+            DepositTransaction, LoanTransaction, LocTransaction or
+            InvestmentTransaction'
+          schema:
+            $ref: '#/definitions/RegisterRequest'
+        '400':
+          description: Bad Request Exception
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        '403':
+          description: Forbidden - the user is not authorized to use this resource
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: Bad Request Exception
+          schema:
+            $ref: '#/definitions/Error'
+        '415':
+          description: Unsupported Media Type
+          schema:
+            $ref: '#/definitions/Error'
+        '429':
+          description: Too many requests
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        '502':
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        '504':
+          description: Integration or Backend Timeout
+          schema:
+            $ref: '#/definitions/Error'
