@@ -1,0 +1,612 @@
+{
+	"info": {
+		"_postman_id": "484a8491-8c21-45af-aaaa-c9a312a138d4",
+		"name": "Kushki-Ecuador",
+		"description": "Collection para merchant Ecuador",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "5754708"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Public-Merchant-Id",
+						"value": "10123111999576385619222003",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \"card\":{\n    \"name\": \"Test Kushki\",\n    \"number\": \"4242424242424242\",\n    \"expiryMonth\": \"49\",\n    \"expiryYear\": \"12\",\n    \"cvv\": \"123\"\n  },\n  \"totalAmount\": 1.12,\n  \"currency\": \"USD\",\n  \"isDeferred\": false\n}"
+				},
+				"url": "https://api.kushkipagos.com/card/v1/tokens"
+			},
+			"response": []
+		},
+		{
+			"name": "PreAuth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "20000000102013220000",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "Content-Type",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"token\": \"BXXA8w100000nJSHcV062563quv2IdES\",\n  \"amount\": {\n    \"subtotalIva\": 0,\n    \"subtotalIva0\": 10.00,\n    \"ice\": 0,\n    \"iva\": 0,\n    \"currency\": \"PEN\"\n  },\n  \"fullResponse\": true\n}"
+				},
+				"url": "https://api-qa.kushkipagos.com/card/v1/preAuthorization"
+			},
+			"response": []
+		},
+		{
+			"name": "Capture",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "20000000102013220000",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "Content-Type",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ticketNumber\": \"219177469804370332\"\n}"
+				},
+				"url": "https://api-qa.kushkipagos.com/card/v1/capture"
+			},
+			"response": []
+		},
+		{
+			"name": "Transaction Token - Ecuador",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Public-Merchant-Id",
+						"value": "10000002036955013614148494909956"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card\":{\n    \"name\": \"Pato Moreano\",\n    \"number\": \"4823613497357688\",\n    \"expiryMonth\": \"09\",\n    \"expiryYear\":\"23\",\n    \"cvv\": \"111\"\n  },\n  \"totalAmount\": 1.22,\n  \"currency\":\"USD\"\n}\n"
+				},
+				"url": "https://api-qa.kushkipagos.com/v1/tokens"
+			},
+			"response": []
+		},
+		{
+			"name": "Subscriptions Tokens - Ecuador",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Public-Merchant-Id",
+						"value": "cc40134a76f44753bf6a04af6fe5abed"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"card\":{\r\n    \"name\": \"Patricio M\",\r\n    \"number\": \"4242424242424242\",\r\n    \"expiryMonth\": \"02\",\r\n    \"expiryYear\": \"23\",\r\n    \"cvv\": \"436\"\r\n  },\r\n  \"currency\": \"USD\"\r\n}"
+				},
+				"url": "https://api-uat.kushkipagos.com/v1/subscription-tokens"
+			},
+			"response": []
+		},
+		{
+			"name": "Charge - Ecuador",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "10123111999544286933222003"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "Content-Type",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"token\": \"c12e06420ef3493fa6287a2095e8590b\",\n  \"amount\": {\n    \"subtotalIva\": 1.12,\n    \"subtotalIva0\": 0,\n    \"iva\": 0,\n    \"ice\": 0,\n    \"currency\": \"USD\"\n  },\n  \"fullResponse\": true\n}"
+				},
+				"url": "https://api-uat.kushkipagos.com/v1/charges"
+			},
+			"response": []
+		},
+		{
+			"name": "Charge - Ecuador Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "10123111999544286933222003"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "Content-Type",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"token\": \"SCEV5f101231eJLwxg119995yi3lbLeK\",\n  \"amount\": {\n    \"subtotalIva\": 1.00,\n    \"subtotalIva0\": 0,\n    \"iva\": 0.12,\n    \"ice\": 0,\n    \"currency\": \"USD\"\n  },\n  \"fullResponse\": true\n}"
+				},
+				"url": "https://api-uat.kushkipagos.com/card/v1/charges"
+			},
+			"response": []
+		},
+		{
+			"name": "Void Charge - Ecuador",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "05a9d2be46364df7ac307e2c4fea39ab"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"fullResponse\": true\n}"
+				},
+				"url": "https://api-uat.kushkipagos.com/card/v1/charges/221027030058517165"
+			},
+			"response": []
+		},
+		{
+			"name": "Chargeback",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJraWQiOiJlN3NqajZJdktiVDUxNWlTYVZxaklKUCtPRisyQXY5K2Zpdk8ycG1BUWpRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkYzk3ZWZlYy0wODg3LTQ5MTEtYTdmNy1iYmE4MmYwZDkxYjAiLCJkZXZpY2Vfa2V5IjoidXMtZWFzdC0xXzRjZjY2NzYyLTY3YWItNDNhMy1hZDJhLTJjY2Q3MDQ1MDQ1ZSIsImNvZ25pdG86Z3JvdXBzIjpbIkJhY2tvZmZpY2VBZG1pbiIsIkJhY2tvZmZpY2VVc2VyTWFzdGVyIl0sInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE1NjEwNjYzNTUsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzRDYllzZFlyWCIsImV4cCI6MTU2MTA2OTk1NSwiaWF0IjoxNTYxMDY2MzU1LCJqdGkiOiJmMDYyNTBkOC1hNjMxLTQ3NTgtYTNmMS1hN2MxNzJjYWJjNGYiLCJjbGllbnRfaWQiOiI3NnNxMmpqcHJqZWNnNDdvdjZ2ZjJiZjdybyIsInVzZXJuYW1lIjoiQ2hhcmdlYmFjayJ9.gWIxYYU-nqqNcr97NRVq8xGAPwXD7QKZudLDGu-ufrsDQ6nxKUrMwoqLdI0eSreKCNEAxA-NQMj5TuygRfklRoYcxL5r5Qof0u9etJ_rV_tHYdzxIj_5OLjGxQ-44LR1_9JB9KYKpicwwr4snCEGGFrIbclip6JzJVH2N_DzX1iP5ajBlkEXuX76CFkZ03_7SZssdxHK0aTOhCOYFMDsX2Pf6Z8q2DiTzYhy3i6347_8DxepDgUW_KLkQfDbrohGTl0fnWWgBVkSmFURUArX9vGVpkEaNY8RHKrWEM-qsb1DNLUYs0Lj5fIN9Eef_RIvPiVxZDnTYg7iy2sVLDPJuQ",
+						"type": "text"
+					}
+				],
+				"url": "https://api-qa.kushkipagos.com/card/v1/admin/chargeback/419171498809470510"
+			},
+			"response": []
+		},
+		{
+			"name": "Chargeback Subscription",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJraWQiOiJlN3NqajZJdktiVDUxNWlTYVZxaklKUCtPRisyQXY5K2Zpdk8ycG1BUWpRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkYzk3ZWZlYy0wODg3LTQ5MTEtYTdmNy1iYmE4MmYwZDkxYjAiLCJkZXZpY2Vfa2V5IjoidXMtZWFzdC0xXzRjZjY2NzYyLTY3YWItNDNhMy1hZDJhLTJjY2Q3MDQ1MDQ1ZSIsImNvZ25pdG86Z3JvdXBzIjpbIkJhY2tvZmZpY2VBZG1pbiIsIkJhY2tvZmZpY2VVc2VyTWFzdGVyIl0sInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE1NjExMjgxNDcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xXzRDYllzZFlyWCIsImV4cCI6MTU2MTEzMTc0NywiaWF0IjoxNTYxMTI4MTQ3LCJqdGkiOiJiZmU5NDRhNy03MWZlLTRlZDgtYTBiOS04OWEwMGJiOWJkYjgiLCJjbGllbnRfaWQiOiI3NnNxMmpqcHJqZWNnNDdvdjZ2ZjJiZjdybyIsInVzZXJuYW1lIjoiQ2hhcmdlYmFjayJ9.HrCw7iL2vKJk4-gka86nxr_r1HZHWa9EqSWVGP6rrPS_zu-12r3cUxkNpYLoUp1u-DgtX5KN7-eja-JGICC1WWa8t5a8BBqIZrGxiNEz3OleRk96AOEXOPK1lZeqJhu4UqT6jxoccOOkvZvQo1tQitWP0mddOqtdluKq7nTOS5lWhk-ln1UcQHrnClAmtR4M9bNQKZho6RtWDMtkyTQIUO_VYvUB-kLq4VX48SubHQdM8NsPQHWMSU3aOmy7c8Pq7kqo6VyrH_ZGDvzucVu22PwvtK8oG4suB69vNsk9xq5BONb2Aj3z0Fr32-CrG0Fe0IwkWBiJIQw9BCrtCsZ3cQ",
+						"type": "text"
+					}
+				],
+				"url": "https://api-qa.kushkipagos.com/subscriptions/admin/chargeback/1544634345373000"
+			},
+			"response": []
+		},
+		{
+			"name": "Create subscriptions - Ecuador",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "10123111999576385619222003"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"token\": \"d6eec66a2b7c491f8572c76149efabab\",\r\n  \"planName\": \"test Pato UAT2\",\r\n  \"periodicity\": \"custom\",\r\n  \"contactDetails\": {\r\n    \"firstName\": \"Pato\",\r\n    \"lastName\": \"Moreano\",\r\n    \"email\": \"patricio@kushkipagos.com\"\r\n  },\r\n  \"amount\": {\r\n    \"subtotalIva\": 1,\r\n    \"subtotalIva0\":0,\r\n    \"ice\": 0,\r\n    \"iva\": 0.12,\r\n    \"currency\": \"USD\"\r\n  },\r\n  \"startDate\": \"2021-11-19\",\r\n  \"language\": \"es\",\r\n  \"fullResponse\": \"v2\"\r\n}"
+				},
+				"url": "https://api.kushkipagos.com/v1/subscriptions"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Subscription Card - Ecuador",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "10000002036911050798148494909956"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"token\": \"b8b2d1dd8e3840268ada6671e288352e\"\n}"
+				},
+				"url": "https://api-qa.kushkipagos.com/v1/subscriptions/1545057493661000/card"
+			},
+			"response": []
+		},
+		{
+			"name": "Refund - Ecuador",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "10000002036911050798148494909956"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "https://api-qa.kushkipagos.com/v1/refund/180082166285900051"
+			},
+			"response": []
+		},
+		{
+			"name": "TokenCharge",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Public-Merchant-Id",
+						"value": "10000002036955013614148494909956",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"card\":{\r\n    \"name\": \"Patricio Moreaon\",\r\n    \"number\": \"4242424242424242\",\r\n    \"expiryMonth\": \"06\",\r\n    \"expiryYear\": \"22\",\r\n    \"cvv\": \"111\"\r\n  },\r\n  \"currency\": \"USD\",\r\n  \"userId\": \"100000020369550136141484949099564242424242\",\r\n  \"sessionId\": \"asdfghjklmnbvcxqwertyuiop\"\r\n}"
+				},
+				"url": "https://api-qa.kushkipagos.com/subscriptions/v1/card/1543267242354000/tokens"
+			},
+			"response": []
+		},
+		{
+			"name": "Charge Subscriptions - Ecuador",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "a3d45c4ff3a9484cad33a1b7601f2afd"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"language\": \"es\",\n  \"fullResponse\": true\n}"
+				},
+				"url": "https://api.kushkipagos.com/v1/subscriptions/1594267908181000/charges"
+			},
+			"response": []
+		},
+		{
+			"name": "Adjustments Subscriptions - Ecuador",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "10123111999544286933222003"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"charge\",\r\n  \"date\": \"2017-01-23\",\r\n  \"amount\": {\r\n      \"subtotalIva\": 2,\r\n      \"subtotalIva0\":0,\r\n      \"ice\": 0,\r\n      \"iva\": 0.28,\r\n      \"currency\": \"USD\"\r\n  },\r\n  \"periods\": 1\r\n}"
+				},
+				"url": "https://api-stg.kushkipagos.com/v1/subscriptions/0000000000026825/adjustment"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Subscriptions - Ecuador",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "10123111999544286933222003"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"planName\": \"Premium Premium\",\r\n  \"periodicity\": \"monthly\",\r\n  \"contactDetails\": {\r\n    \"firstName\": \"Lisbeth Salander\",\r\n    \"lastName\": \"Salander Lisbeth\",\r\n    \"email\": \"lisbeth@salander.com\"\r\n  },\r\n  \"amount\": {\r\n    \"subtotalIva\": 2,\r\n    \"subtotalIva0\":0,\r\n    \"ice\": 0,\r\n    \"iva\": 0.24,\r\n    \"currency\": \"USD\"\r\n  },\r\n  \"startDate\": \"2017-04-10\",\r\n  \"language\": \"es\"  \r\n}"
+				},
+				"url": "https://api-qa.kushkipagos.com/v1/subscriptions/0000000000015004"
+			},
+			"response": []
+		},
+		{
+			"name": "Session Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Public-Merchant-Id",
+						"value": "10000002036955013614148494909956"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/antifraud/sessionId?fingerprint=8adc7adabfa0ddcebcd8438ffec1bcc4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"antifraud",
+						"sessionId"
+					],
+					"query": [
+						{
+							"key": "fingerprint",
+							"value": "8adc7adabfa0ddcebcd8438ffec1bcc4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transactions List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "10000001641088709280111217"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://api-uat.kushkipagos.com/v1/transactions-list",
+					"protocol": "https",
+					"host": [
+						"api-uat",
+						"kushkipagos",
+						"com"
+					],
+					"path": [
+						"v1",
+						"transactions-list"
+					],
+					"query": [
+						{
+							"key": "created",
+							"value": "1507730995000",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Subscriptions - Ecuador",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Private-Merchant-Id",
+						"value": "10123111999544286933222003"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"language\": \"es\"\n}"
+				},
+				"url": "https://api-qa.kushkipagos.com/v1/subscriptions/0000000000015004"
+			},
+			"response": []
+		},
+		{
+			"name": "Deferred",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Public-Merchant-Id",
+						"value": "20000000104723042000",
+						"type": "text"
+					}
+				],
+				"url": "https://api-uat.kushkipagos.com/card/v1/deferred/489958"
+			},
+			"response": []
+		},
+		{
+			"name": "Check Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Public-Merchant-Id",
+						"value": "10123114605843278202151188981949",
+						"type": "text"
+					}
+				],
+				"url": "https://api-qa.kushkipagos.com/rules/v1/gatewayStatus"
+			},
+			"response": []
+		},
+		{
+			"name": "MasterCard Tokens",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Public-Merchant-Id",
+						"value": "10000002036955013614148494909956",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "Content-Type",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"token\": \"5555551417534444\",\n\"kind\": \"Mastercard\",\n\"totalAmount\": 1,\n\"currency\": \"USD\",\n\"isDeferred\": false\n}"
+				},
+				"url": "https://api-qa.kushkipagos.com/v1/tokens"
+			},
+			"response": []
+		},
+		{
+			"name": "BinCheck",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Public-Merchant-Id",
+						"value": "1000000526083094580315529232566",
+						"type": "text"
+					}
+				],
+				"url": "https://api-qa.kushkipagos.com/card/v1/bin/512294"
+			},
+			"response": []
+		},
+		{
+			"name": "Secure Validation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Public-Merchant-Id",
+						"value": "1000000320453612908115270203290",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "Content-Type",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"secureServiceId\": \"8cb86b58-8682-4a24-9959-05e28e21e8cb\",\n\t\"otpValue\": \"555\",\n\t\"secureService\": \"kushkiOTP\"\n}"
+				},
+				"url": "https://api-uat.kushkipagos.com/rules/v1/secureValidation"
+			},
+			"response": []
+		},
+		{
+			"name": "Subscription Search",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJraWQiOiJlN3NqajZJdktiVDUxNWlTYVZxaklKUCtPRisyQXY5K2Zpdk8ycG1BUWpRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhMTllNDE4Mi1jZmViLTQzZmUtOTE2ZC0yZWIyZGQxMTExODIiLCJkZXZpY2Vfa2V5IjoidXMtZWFzdC0xXzM3MzMzOGM5LTFmNzctNGRiOS1hZWZiLTk1MzhhYTFjNTQ0ZCIsImNvZ25pdG86Z3JvdXBzIjpbIldlYmNoZWNrb3V0TWFzdGVyIiwiQmFja29mZmljZVVzZXJNYXN0ZXIiXSwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJhd3MuY29nbml0by5zaWduaW4udXNlci5hZG1pbiIsImF1dGhfdGltZSI6MTU3NDE3NjQyMiwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfNENiWXNkWXJYIiwiZXhwIjoxNTc0MTgwMDIyLCJpYXQiOjE1NzQxNzY0MjIsImp0aSI6ImM5ODIwYmJkLTA0M2QtNGEwNC04YmU1LTcxYzIxZTc1NzZkOSIsImNsaWVudF9pZCI6Ijc2c3EyampwcmplY2c0N292NnZmMmJmN3JvIiwidXNlcm5hbWUiOiJkYXZpZC5tb3JhbiJ9.dm0e87chqRx6fnIMiVyKIZe99yO_cjrSie9BP0AfmgIa5gzgq_HuV1G8BL1G5vxlLPCKF6D_gLdds63TJqmTh6eQdI1fuE9F67xbJtdf1bDeC33nLrs9xXduFgtAqK2sOkT0_4niw2fNWL9bkMvpC0nn8eJUegIhNI5hg2K-SBkK7uvofBOLuPuB3GOAwCl4lRcLPZg5OqTRXdU205PzoBxWbIh9wWFfsbUzXSglc70Ce_fdzM-PH8gAhAxFmwBjBjo8RBN2Z4S_qiKyGR_fshjsfEJM7CJ3-spHPoueH7fP2Px96J81gybSxxBfPY9Kyf4T9iFbQKvSIpNgOgaFaw",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "Content-Type",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"limit\": 50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://api-uat.kushkipagos.com/subscriptions/v1/card/search"
+			},
+			"response": []
+		},
+		{
+			"name": "SubscriptionInfo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://api-uat.kushkipagos.com/subscriptions/v1/card/search/"
+			},
+			"response": []
+		}
+	]
+}
